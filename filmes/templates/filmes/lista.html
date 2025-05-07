@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Filmes</title>
+    <link rel="stylesheet" href="{% static 'filmes/style.css' %}">
+</head>
+<body>
+    <h1>Catálogo de Filmes</h1>
+    <div class="container">
+        {% for filme in filmes %}
+            <div class="filme">
+                <img src="{{ filme.capa.url }}" alt="{{ filme.titulo }}">
+                <h2>{{ filme.titulo }}</h2>
+                <p>{{ filme.descricao }}</p>
+                <p><strong>Ano:</strong> {{ filme.ano }}</p>
+                <p><strong>Gênero:</strong> {{ filme.genero }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhum filme cadastrado.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
